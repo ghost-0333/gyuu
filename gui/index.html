@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗜️ gyuu - 画像圧縮ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗜️ gyuu</h1>
+            <p>画像をぎゅーっと圧縮</p>
+        </header>
+
+        <div class="settings">
+            <h3>⚙️ 設定</h3>
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <label for="quality">圧縮品質</label>
+                    <input type="range" id="quality" min="10" max="100" value="80">
+                    <span id="quality-value">80%</span>
+                </div>
+                <div class="setting-item">
+                    <label for="format">出力フォーマット</label>
+                    <select id="format">
+                        <option value="auto">元のフォーマット</option>
+                        <option value="jpeg">JPEG</option>
+                        <option value="png">PNG</option>
+                        <option value="webp">WebP（推奨）</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label for="max-width">最大幅 (px)</label>
+                    <input type="number" id="max-width" placeholder="制限なし" min="1">
+                </div>
+                <div class="setting-item">
+                    <label for="max-height">最大高さ (px)</label>
+                    <input type="number" id="max-height" placeholder="制限なし" min="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+            <div class="drop-zone-icon">📁</div>
+            <h2>画像をドロップ</h2>
+            <p>またはクリックしてファイルを選択</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #999;">PNG, JPEG, WebP, GIF に対応</p>
+            <input type="file" class="file-input" id="fileInput" multiple accept="image/*">
+        </div>
+
+        <div class="results" id="results"></div>
+
+        <div class="summary" id="summary" style="display: none;">
+            <h3>📊 サマリー</h3>
+            <div class="summary-stats">
+                <div class="stat">
+                    <div class="stat-value" id="total-files">0</div>
+                    <div class="stat-label">ファイル</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="total-original">0 KB</div>
+                    <div class="stat-label">圧縮前</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="total-compressed">0 KB</div>
+                    <div class="stat-label">圧縮後</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="total-reduction">0%</div>
+                    <div class="stat-label">削減率</div>
+                </div>
+            </div>
+            <button class="btn btn-download-all" id="downloadAll">
+                📦 すべてダウンロード
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
