@@ -1,4 +1,6 @@
 #!/bin/bash
-cd "$(dirname "$0")/../../../"
-source .venv/bin/activate
-python gui/gui_app.py &
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+APP_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+cd "$APP_DIR"
+source "$APP_DIR/.venv/bin/activate"
+"$APP_DIR/.venv/bin/python" "$APP_DIR/gui/gui_app.py" &
